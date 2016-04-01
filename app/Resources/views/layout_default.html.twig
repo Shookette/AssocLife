@@ -2,11 +2,13 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        {{ knp_menu_render('main') }}
+        {{ knp_menu_render('user') }}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

@@ -1,0 +1,10 @@
+services:
+#    core.example:
+#        class: CoreBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
+    core.menu_builder:
+        class: CoreBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory"]
+        tags:
+            - { name: knp_menu.menu_builder, method: createMainMenu, alias: main } # Theuser_subscribe alias is what is used to retrieve the menu
+            - { name: knp_menu.menu_builder, method: createUserMenu, alias: user } # Theuser_subscribe alias is what is used to retrieve the menu

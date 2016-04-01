@@ -1,0 +1,11 @@
+core_homepage:
+    path:     /
+    defaults: { _controller: CoreBundle:Default:index }
+
+user_subscribe:
+    path:     /subscribe
+    defaults: {_controller: CoreBundle:User:subscribe }
+
+user_login:
+    path:     /login
+    defaults: {_controller: CoreBundle:User:login }
