@@ -33,7 +33,7 @@ class MenuBuilder
    {
         $menu = $this->factory->createItem('root');
 
-        $menu->setChildrenAttribute('class', 'nav pull-right');
+        $menu->setChildrenAttribute('class', 'has-dropdown');
         $menu->addChild('User')->setAttribute('dropdown', true);
 
         $menu['User']->addChild('Profile', ['uri' => '#']);
