@@ -1142,8 +1142,6 @@
             "time": "2015-12-15 12:06:23"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "kriswallsmith/assetic",
             "version": "v1.3.2",
             "source": {
@@ -1221,7 +1219,6 @@
             "time": "2015-11-12 13:51:40"
         },
         {
->>>>>>> correction corruption git
             "name": "monolog/monolog",
             "version": "1.17.2",
             "source": {
