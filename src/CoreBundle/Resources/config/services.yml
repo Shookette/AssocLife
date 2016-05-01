@@ -8,3 +8,17 @@ services:
         tags:
             - { name: knp_menu.menu_builder, method: createMainMenu, alias: main } # Theuser_subscribe alias is what is used to retrieve the menu
             - { name: knp_menu.menu_builder, method: createUserMenu, alias: user } # Theuser_subscribe alias is what is used to retrieve the menu
+
+
+# Repository
+    core.repository.organization:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - CoreBundle\Entity\Organization
+
+# Manager
+    core.manager.organization:
+        class: CoreBundle\Manager\OrganizationManager
+        arguments: ["@doctrine.orm.entity_manager", "@core.repository.organization"]

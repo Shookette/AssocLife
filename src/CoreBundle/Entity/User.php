@@ -17,6 +17,14 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Organization")
+     * @ORM\JoinColumns({
+     *  @ORM\JoinColumn(name="organization_id", referencedColumnName="id")
+     * })
+     */
+    private $organization;
 
     public function __construct()
     {
