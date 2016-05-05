@@ -1,14 +1,17 @@
 services:
-#    core.example:
-#        class: CoreBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
     core.menu_builder:
         class: CoreBundle\Menu\MenuBuilder
-        arguments: ["@knp_menu.factory"]
+        arguments: ["@knp_menu.factory", "@security.authorization_checker"]
         tags:
             - { name: knp_menu.menu_builder, method: createMainMenu, alias: main } # Theuser_subscribe alias is what is used to retrieve the menu
             - { name: knp_menu.menu_builder, method: createUserMenu, alias: user } # Theuser_subscribe alias is what is used to retrieve the menu
 
+# EventListener
+    core.register_complete:
+        class: CoreBundle\EventListener\UserRegisterListener
+        arguments: ["@router", "@monolog.logger"]
+        tags:
+            - { name: kernel.event_subscriber }
 
 # Repository
     core.repository.organization:
@@ -21,4 +24,4 @@ services:
 # Manager
     core.manager.organization:
         class: CoreBundle\Manager\OrganizationManager
-        arguments: ["@doctrine.orm.entity_manager", "@core.repository.organization"]
+        arguments: ["@doctrine.orm.entity_manager", "@core.repository.organization", "@session"]

@@ -46,11 +46,8 @@ class Organization
      */
     private $logo;    
  
-    public function __construct($name, $creationDate)
+    public function __construct()
     {
-        $this->name = $name;
-        $this->creationDate = $creationDate;
-        $this->logo = "";
     }
     
     public function getId()
@@ -63,4 +60,58 @@ class Organization
         return $this->name;
     }
     
+    public function getCreationDate()
+    {
+        return $this->creationDate;
+    }
+    
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+    
+    public function getMembers()
+    {
+        return $this->members;
+    }
+    
+    public function getTemplate()
+    {
+        return $this->template;
+    }
+    
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+    
+    public function setCreationDate($creationDate)
+    {
+        $this->creationDate = $creationDate;
+    }
+    
+    public function setDescription($description)
+    {
+        $this->$description = $description;
+    }
+    
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+    }
+    
+    public function setMembers($members)
+    {
+        $this->members = $members;
+    }
+    
+    public function setTemplate($template)
+    {
+        $this->template = $template;
+    }
 }

@@ -2,10 +2,22 @@ core_homepage:
     path:     /
     defaults: { _controller: CoreBundle:Default:index }
 
-user_subscribe:
-    path:     /subscribe
-    defaults: {_controller: CoreBundle:User:subscribe }
+user_profile:
+    path:     /profile
+    defaults: { _controller: CoreBundle:User:showProfile }
 
-user_login:
-    path:     /login
-    defaults: {_controller: CoreBundle:User:login }
+user_first_visit:
+    path:     /firstVisit
+    defaults: { _controller: CoreBundle:User:firstVisit }
+    
+organization_create:
+    path:     /organization/create
+    defaults: { _controller: CoreBundle:Organization:createOrganization }
+    
+organization_show:
+    path:     /organization/show/{organizationId}
+    defaults: { _controller: CoreBundle:Organization:showOrganization }
+    
+organization_list:
+    path:     /organization/list
+    defaults: { _controller: CoreBundle:Organization:showAllOrganization }

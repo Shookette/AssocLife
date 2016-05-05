@@ -1,0 +1,23 @@
+{% extends 'CoreBundle::layout.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-6 large-centered columns">
+            <h2>show an organization</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-3 columns">
+            {{ organization.id }}
+        </div>
+        <div class="large-3 columns">
+            {{ organization.name }}
+        </div>
+        <div class="large-3 columns">
+            {{ organization.creationDate|date('d-m-Y') }}
+        </div>
+        <div class="large-3 columns">
+            {{ organization.description }}
+        </div>
+    </div>
+{% endblock %}

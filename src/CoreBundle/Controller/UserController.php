@@ -6,13 +6,43 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class UserController extends Controller
 {
-    public function subscribeAction()
+    /**
+     *
+     */
+    public function showProfileAction()
     {
-        return $this->render('CoreBundle:User:subscribe.html.twig');
+        $logger     = $this->get('logger');
+        // Get user store in session
+        $user       = $this->get('security.token_storage')->getToken()->getUser();
+        
+        $logger->error('==============================');
+        $logger->error('====== showProfileAction =====');
+        $logger->error('==============================');
+        
+        return $this->render(
+            'CoreBundle:User:profile.html.twig',
+            [
+                'user'  => $user
+            ]
+        );
     }
-
-    public function loginAction()
+    
+    // TODO: Create form with select between create or find association
+    public function firstVisitAction()
     {
-        return $this->render('CoreBundle:User:login.html.twig');
+        $logger     = $this->get('logger');
+        // Get user store in session
+        $user       = $this->get('security.token_storage')->getToken()->getUser();
+        
+        $logger->error('==============================');
+        $logger->error('====== firstVisitAction ======');
+        $logger->error('==============================');
+        
+        return $this->render(
+            'CoreBundle:User:profile.html.twig',
+            [
+                'user'  => $user
+            ]
+        );
     }
 }

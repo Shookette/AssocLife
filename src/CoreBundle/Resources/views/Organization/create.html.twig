@@ -1,0 +1,91 @@
+{% extends 'CoreBundle::layout.html.twig' %}
+
+{% block content %}
+    
+    <div class="row">
+        <div class="large-6 large-centered columns">
+            <h2>create all organization here</h2>
+        </div>
+    
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+        {# Les erreurs générales du formulaire. #}
+        
+        {{ form_errors(form) }}
+
+        <div class="row">
+            {# Génération du label. #}
+            <div class="large-4 columns">
+                {{ form_label(form.name, "Titre de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.name) }}
+            </div>
+
+            <div class="large-8 columns">
+                {# Génération de l'input. #}
+                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="row">
+            {# Génération du label. #}
+            <div class="large-4 columns">
+                {{ form_label(form.creationDate, "Titre de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.creationDate) }}
+            </div>
+
+            <div class="large-8 columns">
+                {# Génération de l'input. #}
+                {{ form_widget(form.creationDate, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        
+        <div class="row">
+            {# Génération du label. #}
+            <div class="large-4 columns">
+                {{ form_label(form.description, "Titre de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.description) }}
+            </div>
+
+            <div class="large-8 columns">
+                {# Génération de l'input. #}
+                {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        
+        <div class="row">
+            {# Génération du label. #}
+            <div class="large-4 columns">
+                {{ form_label(form.logo, "Titre de l'annonce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(form.logo) }}
+            </div>
+
+            <div class="large-8 columns">
+                {# Génération de l'input. #}
+                {{ form_widget(form.logo, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="large-2 large-centered columns">
+                {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+                {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+
+                {# Génération automatique des champs pas encore écrits.
+                    Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+                    et tous les champs cachés (type « hidden »). #}
+                {{ form_rest(form) }}
+                
+                {# Fermeture de la balise <form> du formulaire HTML #}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

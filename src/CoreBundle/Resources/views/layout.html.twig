@@ -3,5 +3,8 @@
 
 
 {% block title %} {{ 'user.title'|trans }} {% endblock %}
-{% block body %}{% endblock %}
+{% block body %}
+    {% block content %}
+    {% endblock %}
+{% endblock %}
 {% block javascripts %}{% endblock %}

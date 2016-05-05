@@ -5,6 +5,7 @@ namespace CoreBundle\Manager;
 use Doctrine\ORM\EntityManager;
 use CoreBundle\Repository\OrganizationRepository;
 use CoreBundle\Entity\Organization;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class OrganizationManager
 {
@@ -18,17 +19,18 @@ class OrganizationManager
      */
     private $repo;
     
-    public function __construct(EntityManager $em, OrganizationRepository $repo)
+    /**
+     * @var Session
+     */
+    private $session;
+    
+    public function __construct(EntityManager $em, OrganizationRepository $repo, Session $session)
     {
         $this->em   = $em;
         $this->repo = $repo;
+        $this->session = $session;
     }
-    
-    public function test()
-    {
-        return "titi";
-    }
-    
+  
     /**
      * Persist an organization from organization object
      * @param Organization $orga
@@ -39,7 +41,7 @@ class OrganizationManager
         $exist = $this->repo->findOneByName($orga->getName());
         
         if ($exist) {
-            $this->get('session')->getSession()
+            $this->session
                 ->getFlashBag()
                 ->add('error', 'Organization already exists')
             ;
@@ -49,7 +51,7 @@ class OrganizationManager
         $this->em->persist($orga);
         $this->em->flush();
         
-        $this->get('session')->getSession()
+        $this->session
             ->getFlashBag()
             ->add('success', 'Organization has been successfully created')
         ;
@@ -71,5 +73,10 @@ class OrganizationManager
         }
         
         return $orga;
+    }
+    
+    public function findAll()
+    {
+        return $this->repo->findAll();
     }
 }
